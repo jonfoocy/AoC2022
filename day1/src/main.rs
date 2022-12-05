@@ -31,21 +31,16 @@ fn get_highest_calories() -> Result<i32> {
 }
 
 fn get_lowest_index_and_number(numbers: &[i32]) -> (usize, i32) {
-    let mut lowest_index: i32 = -1;
-    let mut lowest_number: i32 = -1;
+    let mut lowest_index: usize = 0;
+    let mut lowest_number: i32 = numbers[0];
     for (i, number) in numbers.iter().enumerate() {
-        if lowest_index == -1 && lowest_number == -1 {
-            lowest_index = i as i32;
+        if number <= &lowest_number {
             lowest_number = *number;
-        } else {
-            if number <= &lowest_number {
-                lowest_number = *number;
-                lowest_index = i as i32;
-            }
+            lowest_index = i;
         }
     }
 
-    (lowest_index as usize, lowest_number)
+    (lowest_index, lowest_number)
 }
 
 fn get_total_highest_3_calories() -> Result<i32> {
