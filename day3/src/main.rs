@@ -1,6 +1,6 @@
 #![feature(buf_read_has_data_left)]
 
-use std::{collections::HashSet, hash::Hash, io::BufRead};
+use std::{collections::HashSet, io::BufRead};
 
 extern crate utils;
 
@@ -12,7 +12,7 @@ fn get_priority(c: char) -> u32 {
     }
 }
 
-fn day1() {
+fn part1() {
     let file_path: String = "input.txt".to_string();
     let mut reader = utils::get_file_reader(&file_path);
 
@@ -36,11 +36,10 @@ fn day1() {
         let priority: u32 = get_priority(common_char);
         total_priority += priority;
     }
-    println!("DAY 1");
-    println!("total priority: {}", total_priority);
+    println!("part 1 total priority: {}", total_priority);
 }
 
-fn day2() {
+fn part2() {
     let file_path: String = "input.txt".to_string();
     let mut reader = utils::get_file_reader(&file_path);
 
@@ -79,6 +78,6 @@ fn day2() {
 }
 
 fn main() {
-    // day1();
-    day2();
+    part1();
+    part2();
 }
